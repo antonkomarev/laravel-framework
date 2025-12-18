@@ -86,7 +86,8 @@ class LoadEnvironmentVariables
         return Dotenv::create(
             Env::getRepository(),
             $app->environmentPath(),
-            $app->environmentFile()
+            [$app->environmentFile(), $app->environmentFile() . '.local'],
+            false
         );
     }
 
